@@ -123,6 +123,8 @@ class PointToTargetContent(BaseContent):
                 # When hitting the red plus cursor
                 self._move_to_target_phase()
                 need_render = True
+                # add phase check
+                info['start_phase'] = 'False'
         else:
             self.reaction_step += 1
             if self.target_sprite.contains(local_focus_pos):
@@ -130,14 +132,20 @@ class PointToTargetContent(BaseContent):
                 reward = 2
                 info['result'] = 'success'
                 info['reaction_step'] = self.reaction_step
+                # add phase check
+                info['start_phase'] = 'True'
             elif self.lure_sprite.contains(local_focus_pos):
                 # When hitting the lure
                 reward = 1
                 info['result'] = 'fail'
                 info['reaction_step'] = self.reaction_step
+                # add phase check
+                info['start_phase'] = 'True'
             if reward > 0:
                 self._move_to_start_phase()
                 need_render = True
+                # add phase check
+                #info['start_phase'] = 'False'
 
         done = self.step_count >= (MAX_STEP_COUNT - 1)
         return reward, done, need_render, info

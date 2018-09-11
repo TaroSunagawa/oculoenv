@@ -94,6 +94,11 @@ class KeyHandler(object):
             action = np.array([dh, dv])
             # Step environment
             obs, reward, done, info = self.env.step(action)
+            # add check phase
+            if 'start_phase' in info:
+                print("\n")
+                print("start phase={}".format(info['start_phase']))
+
             if reward != 0:
                 print("reward = {}".format(reward))
 
