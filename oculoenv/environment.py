@@ -170,8 +170,8 @@ class Environment(object):
         # Create the objects array
         self.objects = []
         #delete corner
-        #obj = SceneObject("frame0", pos=[0.0, 0.0, -PLANE_DISTANCE], scale=2.0)
-        #self.objects.append(obj)
+        obj = SceneObject("frame0", pos=[0.0, 0.0, -PLANE_DISTANCE], scale=2.0)
+        self.objects.append(obj)
 
     def _get_observation(self):
         # Get rendered image
