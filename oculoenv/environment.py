@@ -169,9 +169,9 @@ class Environment(object):
     def _init_scene(self):
         # Create the objects array
         self.objects = []
-
-        obj = SceneObject("frame0", pos=[0.0, 0.0, -PLANE_DISTANCE], scale=2.0)
-        self.objects.append(obj)
+        #delete corner
+        #obj = SceneObject("frame0", pos=[0.0, 0.0, -PLANE_DISTANCE], scale=2.0)
+        #self.objects.append(obj)
 
     def _get_observation(self):
         # Get rendered image
